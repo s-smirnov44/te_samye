@@ -1,0 +1,347 @@
+@import "fonts.scss";
+@import "mixins.scss";
+
+@include reset;
+
+/************  Общие стили ************/
+@include general;
+/************  /Общие стили ************/
+
+html {
+  box-sizing: border-box;
+  font-family: "Futura PT Book";
+}
+
+body {
+  .container {
+    @media (min-width: 500px) {
+      padding: 0 40px;
+    }
+
+    .btn {
+      @media (min-width: 500px) {
+        width: 300px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      padding: 0 60px;
+    }
+  }
+}
+
+/***********    header     ***********/
+
+@include Header;
+
+/***********    /header     ***********/
+
+.cryo {
+  background: url("../img/dest/cryo5.jpg") #000 no-repeat 50% 50%;
+  background-size: cover;
+  border-radius: 0 0 30px 30px;
+  position: relative;
+  z-index: 50;
+  min-width: 320px;
+
+  &::after {
+    @include darkMode;
+  }
+  @media (min-width: 320px) {
+    padding-top: 100px;
+    padding-bottom: 30px;
+  }
+  @media (min-width: 960px) {
+    margin-top: 0;
+    border-radius: 0;
+    padding-bottom: 90px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .description {
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    color: rgb(235, 228, 228);
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 9;
+    padding-bottom: 50px;
+
+    @media (min-width: 360px) {
+      padding-top: 120px;
+      font-size: 1.3rem;
+    }
+
+    @media (min-width: 500px) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.9rem;
+    }
+
+    &__title h1 {
+      font-size: 60px;
+      font-family: "Akrobat";
+      font-weight: 700;
+      font-style: normal;
+      line-height: 0.9;
+      margin-top: 0px;
+      margin-bottom: 50px;
+      padding-left: 5px;
+      padding-bottom: 20px;
+      background: rgba($color: #000000, $alpha: 0.95);
+      border-radius: 20px;
+
+      @media (min-width: 500px) {
+        font-size: 70px;
+        display: inline-block;
+        padding: 15px;
+      }
+
+      @media (min-width: 768px) {
+        font-size: 120px;
+      }
+    }
+    &__text p {
+      background: rgba($color: #000000, $alpha: 0.7);
+      border-radius: 20px;
+      padding: 10px;
+      width: 800px;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+}
+
+.cryo-video {
+  h2.cryo-video__title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 34px;
+  }
+}
+.clip {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  iframe {
+    margin: 0 auto;
+    width: 90%;
+    height: 600px;
+  }
+}
+
+.cryo-photos {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  h2.cryo-photos__title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 34px;
+  }
+
+  .gallery {
+    position: relative;
+    height: auto;
+    width: 90%;
+    margin: auto;
+    padding: 45px 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 2vh;
+    grid-auto-flow: dense;
+
+    @media only screen and (max-width: 768px) {
+      grid-template-columns: auto auto auto;
+      display: grid;
+    }
+
+    @media only screen and (max-width: 475px) {
+      display: block;
+    }
+
+    .img {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 2px 2px rgba($color: #000000, $alpha: 0.9);
+      border-radius: 2px;
+
+      @media only screen and (max-width: 475px) {
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin: 2% 0;
+      }
+
+      &:first-child {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+      }
+
+      &:nth-child(2n + 3) {
+        grid-row-start: span 2;
+      }
+
+      &:nth-child(4n + 5) {
+        grid-row-start: span 2;
+        grid-column-start: span 2;
+      }
+
+      &:nth-child(6n + 7) {
+        grid-row-start: span 1;
+      }
+
+      &:nth-child(8n + 9) {
+        grid-row-start: span 1;
+        grid-column-start: span 1;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        filter: brightness(0.5) grayscale(0.9);
+        transition: 0.3s ease-in-out;
+
+        @media only screen and (max-width: 475px) {
+          display: block;
+          filter: brightness(1) grayscale(0);
+        }
+
+        &:hover {
+          filter: brightness(1) grayscale(0);
+        }
+      }
+    }
+  }
+}
+
+.pirates-btn {
+  margin-bottom: 80px;
+  background: #fff;
+  color: #000;
+  // border: 2px solid #000;
+}
+
+/***********   footer   ***********/
+
+.footer {
+  background: #3494e6;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ec6ead, #3494e6);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ec6ead, #3494e6);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 20px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 960px) {
+    display: none;
+  }
+
+  @media (min-width: 960px) {
+    &__title {
+      text-align: center;
+      font-size: 35px;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+
+    &__menu {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__nav {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-height: 100px;
+      width: 50%;
+
+      li {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 7px;
+        font-size: 20px;
+
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    &__about {
+      flex-wrap: wrap;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-end;
+      justify-content: start;
+    }
+
+    &__address {
+      display: flex;
+      text-align: right;
+      align-self: flex-end;
+      width: 320px;
+    }
+
+    &__copyrights {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    &__social {
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+      padding-bottom: 20px;
+
+      li {
+        a {
+          img {
+            width: 32px;
+            height: 32px;
+            transition: all 0.5s ease 0.1s;
+
+            &:nth-child(1):hover {
+              filter: invert(0.5);
+            }
+          }
+        }
+      }
+
+      .fb-icon {
+        fill: #3b5998;
+        width: 32px;
+        height: 32px;
+      }
+
+      .youtube-icon {
+        fill: red;
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+/***********   /footer    ***********/
