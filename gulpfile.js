@@ -89,7 +89,7 @@ function styles() {
         } /* , format: 'beautify' */ ,
       })
     ) // Минифицируем стили
-    .pipe(concat("animators.min.css"))
+    .pipe(concat("light.min.css"))
     .pipe(dest("src/css"))
     .pipe(browserSync.stream())
   ); // Сделаем инъекцию в браузер
@@ -106,7 +106,7 @@ function images() {
           loops: 4,
           min: 70,
           max: 80,
-          quality: [0.5, 0.6],
+          quality: [0.7, 0.8],
         }),
         imagemin.gifsicle(),
         imagemin.optipng(),
