@@ -59,7 +59,7 @@ function scripts() {
       "node_modules/jquery/dist/jquery.min.js", // Пример подключения библиотеки
       "src/js/main.js" // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
     ])
-    .pipe(concat("master.min.js")) // Конкатенируем в один файл
+    .pipe(concat("light.min.js")) // Конкатенируем в один файл
     .pipe(uglify()) // Сжимаем JavaScript
     .pipe(dest("src/js/")) // Выгружаем готовый файл в папку назначения
     .pipe(browserSync.stream()); // Триггерим Browsersync для обновления страницы
@@ -89,7 +89,7 @@ function styles() {
         } /* , format: 'beautify' */ ,
       })
     ) // Минифицируем стили
-    .pipe(concat("light.min.css"))
+    .pipe(concat("cowboy.min.css"))
     .pipe(dest("src/css"))
     .pipe(browserSync.stream())
   ); // Сделаем инъекцию в браузер

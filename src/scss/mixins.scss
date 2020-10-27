@@ -142,7 +142,6 @@
   body {
     min-width: 320px;
     overflow-x: hidden;
-    // background: #000;
   }
 
   .container {
@@ -282,11 +281,6 @@
               &:hover {
                 filter: invert(0.9);
               }
-
-              // @media (min-width: 768px) {
-              //   width: 50px;
-              //   height: 50px;
-              // }
             }
           }
         }
